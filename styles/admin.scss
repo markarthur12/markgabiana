@@ -1,0 +1,24 @@
+// Base
+@import '~normalize.css/normalize.css';
+@import './base/colors.scss';
+@import './base/fonts.scss';
+@import './base/mixins.scss';
+@import './base/configuration.scss';
+
+// Prime NG
+@import '~primeicons/primeicons.css';
+@import '~primeng/resources/themes/lara-light-blue/theme.css';
+@import '~primeng/resources/primeng.min.css';
+@import '~primeflex/primeflex.css';
+
+// Bootstrap
+$primary: #900;
+$enable-shadows: true;
+$prefix: "mo-";
+@import '~bootstrap/scss/bootstrap';
+
+// Libs
+@import './libs/ui/ui.scss';
+@import './libs/products/product-item.scss';
+
+@import './apps/admin/shell.scss';
