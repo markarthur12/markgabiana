@@ -59,6 +59,10 @@ export class CategoriesFormComponent implements OnInit {
     
   }
 
+  onCancel(){
+    this.back;
+  }
+
   get categoryForm() {
     return this.form.controls;
   }
