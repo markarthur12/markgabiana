@@ -1,6 +1,11 @@
 <p-toast></p-toast>
 <div class="admin-page">
-  <p-card header="Add Category" subheader="LYou can add or edit category here">
+  <p-card
+    [header]="editMode ? 'Edit Category' : 'Add Category'"
+    [subheader]="
+      editMode ? 'Please edit the category' : 'You can add category here'
+    "
+  >
     <div class="grid">
       <div class="col-12">
         <p-toolbar>
@@ -8,7 +13,7 @@
             <p-button
               icon="pi pi-plus"
               styleClass="p-button-success"
-              label="Add New"
+              [label]="editMode ? 'Edit' : 'Add'"
               (click)="onSubmit()"
             ></p-button>
             <p-button
@@ -36,7 +41,13 @@
                   id="name"
                 />
               </div>
-              <small *ngIf="categoryForm.name.invalid && isSubmitted" class="p-error">Name is required!</small>
+              <small
+                *ngIf="categoryForm.name.invalid && isSubmitted"
+                class="p-error"
+                >Name is required!</small
+              >
+            </div>
+            <div class="col-4 md:col-4">
               <div class="p-inputgroup">
                 <span class="p-inputgroup-addon"
                   ><i class="pi pi-user"></i
@@ -49,7 +60,15 @@
                   id="icon"
                 />
               </div>
-              <small *ngIf="categoryForm.icon.invalid && isSubmitted" class="p-error">Icon is required!</small>
+              <small
+                *ngIf="categoryForm.icon.invalid && isSubmitted"
+                class="p-error"
+                >Icon is required!</small
+              >
+            </div>
+            <div class="col-4 md:col-4">
+              <small class="p-success">Pick a color!</small>
+              <p-colorPicker formControlName="color">Pick a color!</p-colorPicker>
             </div>
           </div>
         </form>

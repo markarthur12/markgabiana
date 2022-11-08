@@ -13,7 +13,7 @@
     &-sidebar {
         position: fixed;
         width: 175px;
-        background-color: rgb(204, 59, 59);
+        background-color: rgb(185, 185, 185);
         height: 100%;
         top: 0;
 
@@ -43,7 +43,7 @@
                         width: 100%;
 
                         &:hover {
-                            background-color: var(--blue-700);
+                            background-color: rgb(255, 163, 25);
                         }
 
                         i {
@@ -53,7 +53,7 @@
                         }
 
                         &.logout {
-                            color: var(--blue-500);
+                            color: rgb(250, 98, 98);
                         }
                     }
                 }

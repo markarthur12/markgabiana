@@ -22,8 +22,12 @@ import {InputTextModule} from 'primeng/inputtext';
 import {ToastModule} from 'primeng/toast';
 import { CategoriesService } from '@markgabiana/products';
 import { MessageService } from 'primeng/api';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {ConfirmationService} from 'primeng/api';
+import {ColorPickerModule} from 'primeng/colorpicker';
+import {StyleClassModule} from 'primeng/styleclass';
 
-const UX_MODULE = [CardModule, ToolbarModule, ButtonModule, TableModule, InputTextModule, ToastModule];
+const UX_MODULE = [CardModule, ToolbarModule, ButtonModule, TableModule, InputTextModule, ToastModule, ConfirmDialogModule, ColorPickerModule, StyleClassModule];
 
 @NgModule({
   declarations: [AppComponent, NxWelcomeComponent, ShellComponent, SidebarComponent, DashboardComponent, CategoriesListComponent, CategoriesFormComponent],
@@ -36,7 +40,7 @@ const UX_MODULE = [CardModule, ToolbarModule, ButtonModule, TableModule, InputTe
     RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
     UX_MODULE,
   ],
-  providers: [CategoriesService, MessageService],
+  providers: [CategoriesService, MessageService, ConfirmationService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

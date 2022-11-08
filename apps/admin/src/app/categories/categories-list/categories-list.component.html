@@ -1,33 +1,64 @@
+<p-toast></p-toast>
+<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
 <div class="admin-page">
-    <p-card header="Categories" subheader="List of all categories">
-        <div class="p-grid">
-            <div class="p-col-12">
-                <p-toolbar>
-                    <div class="p-toolbar-group-left">
-                        <p-button label="New" icon="pi pi-plus" routerLink="new-form"></p-button>
-                    </div>  
-                </p-toolbar>
-            </div>
-        </div>
-        <div class="p-grid">
-            <div class="p-col-12">
-                <p-table [value]="categories" styleClass="p-datatable-gridlines" responsiveLayout="scroll">
-                    <ng-template pTemplate="header">
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Icon</th>
-                        </tr>
-                    </ng-template>
-                    <ng-template pTemplate="body" let-categories>
-                        <tr>
-                            <td>{{categories.id}}</td>
-                            <td>{{categories.name}}</td>
-                            <td>{{categories.icon}}</td>
-                        </tr>
-                    </ng-template>
-                </p-table>
-            </div>
-        </div>
-    </p-card>
+  <p-card header="Categories" subheader="List of all categories">
+    <div class="p-grid">
+      <div class="p-col-12">
+        <p-toolbar>
+          <div class="p-toolbar-group-left">
+            <p-button
+              label="New"
+              icon="pi pi-plus"
+              routerLink="new-form"
+            ></p-button>
+          </div>
+        </p-toolbar>
+      </div>
+    </div>
+    <div class="p-grid">
+      <div class="p-col-12">
+        <p-table
+          [value]="categories"
+          styleClass="p-datatable-gridlines"
+          responsiveLayout="scroll"
+        >
+          <ng-template pTemplate="header">
+            <tr>
+              <th>ID</th>
+              <th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon></th>
+              <th>Icon</th>
+              <th>Color</th>
+              <th>Actions</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-categories>
+            <tr>
+              <td>{{ categories.id }}</td>
+              <td>{{ categories.name }}</td>
+              <td><i class="pi" [ngClass]="'pi-' + categories.icon" [ngStyle]="{'font-size': '2em' }"></i></td>
+              <td><button pButton type="button" class="p-button-rounded" [ngStyle]="{'background-color': categories.color }"></button></td>
+              <td>
+                <button
+                  pButton
+                  type="button"
+                  class="p-button-danger p-button-rounded"
+                  icon="pi pi-trash"
+                  routerLink="form"
+                  (click)="deleteCategory(categories.id)"
+                ></button>
+
+                <button
+                  pButton
+                  type="button"
+                  class="p-button-success p-button-rounded ml-2"
+                  icon="pi pi-pencil"
+                  routerLink="form"
+                  (click)="editCategory(categories.id)"
+                ></button>
+              </td></tr
+          ></ng-template>
+        </p-table>
+      </div>
+    </div>
+  </p-card>
 </div>
