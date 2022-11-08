@@ -1,0 +1,59 @@
+<p-toast></p-toast>
+<div class="admin-page">
+  <p-card header="Add Category" subheader="LYou can add or edit category here">
+    <div class="grid">
+      <div class="col-12">
+        <p-toolbar>
+          <div class="p-toolbar-group-right">
+            <p-button
+              icon="pi pi-plus"
+              styleClass="p-button-success"
+              label="Add New"
+              (click)="onSubmit()"
+            ></p-button>
+            <p-button
+              styleClass="p-button-danger ml-4"
+              label="Cancel"
+            ></p-button>
+          </div>
+        </p-toolbar>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="col-12">
+        <form [formGroup]="form">
+          <div class="grid p-fluid">
+            <div class="col-4 md:col-4">
+              <div class="p-inputgroup">
+                <span class="p-inputgroup-addon"
+                  ><i class="pi pi-user"></i
+                ></span>
+                <input
+                  type="text"
+                  pInputText
+                  placeholder="Name"
+                  formControlName="name"
+                  id="name"
+                />
+              </div>
+              <small *ngIf="categoryForm.name.invalid && isSubmitted" class="p-error">Name is required!</small>
+              <div class="p-inputgroup">
+                <span class="p-inputgroup-addon"
+                  ><i class="pi pi-user"></i
+                ></span>
+                <input
+                  type="text"
+                  pInputText
+                  placeholder="Icon"
+                  formControlName="icon"
+                  id="icon"
+                />
+              </div>
+              <small *ngIf="categoryForm.icon.invalid && isSubmitted" class="p-error">Icon is required!</small>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </p-card>
+</div>
