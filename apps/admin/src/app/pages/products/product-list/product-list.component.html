@@ -1,0 +1,94 @@
+<p-toast></p-toast>
+<p-confirmDialog
+  header="Confirmation"
+  icon="pi pi-exclamation-triangle"
+></p-confirmDialog>
+<div class="admin-page">
+  <p-card header="Products" subheader="List of all products">
+    <div class="p-grid">
+      <div class="p-col-12">
+        <p-toolbar>
+          <div class="p-toolbar-group-left">
+            <p-button
+              label="New"
+              icon="pi pi-plus"
+              routerLink="new-form"
+            ></p-button>
+          </div>
+        </p-toolbar>
+      </div>
+    </div>
+    <div class="p-grid">
+      <div class="p-col-12">
+        <p-table
+          [value]="products"
+          styleClass="p-datatable-gridlines"
+          responsiveLayout="scroll"
+          [paginator]="true"
+          [rows]="10"
+          [showCurrentPageReport]="true"
+          [tableStyle]="{ 'min-width': '50rem' }"
+          currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+          [rowsPerPageOptions]="[10, 25, 50]"
+        >
+          <ng-template pTemplate="header">
+            <tr>
+              <th pSortableColumn="name">
+                Name<p-sortIcon field="name"></p-sortIcon>
+              </th>
+              <th>Image</th>
+              <th pSortableColumn="price">
+                Price<p-sortIcon field="price"></p-sortIcon>
+              </th>
+              <th pSortableColumn="stock">
+                Stock<p-sortIcon field="stock"></p-sortIcon>
+              </th>
+              <th pSortableColumn="category">
+                Category<p-sortIcon field="price"></p-sortIcon>
+              </th>
+              <th pSortableColumn="created">
+                Created At<p-sortIcon field="created"></p-sortIcon>
+              </th>
+              <th>Actions</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-products>
+            <tr>
+              <td>{{ products.name }}</td>
+              <td>
+                <img
+                  [src]="products.image"
+                  alt=""
+                  class="src"
+                  [ngStyle]="{ width: '50%' }"
+                />
+              </td>
+              <td>{{ products.price }}</td>
+              <td>{{ products.countInStock }}</td>
+              <td>{{ products.category.name }}</td>
+              <td>{{ products.dateCreated }}</td>
+              <td>
+                <button
+                  pButton
+                  type="button"
+                  class="p-button-danger p-button-rounded"
+                  icon="pi pi-trash"
+                  routerLink="form"
+                  (click)="deleteProduct(products.id)"
+                ></button>
+
+                <button
+                  pButton
+                  type="button"
+                  class="p-button-success p-button-rounded ml-2"
+                  icon="pi pi-pencil"
+                  routerLink="form"
+                  (click)="editProduct(products.id)"
+                ></button>
+              </td></tr
+          ></ng-template>
+        </p-table>
+      </div>
+    </div>
+  </p-card>
+</div>

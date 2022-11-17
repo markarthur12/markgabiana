@@ -121,7 +121,7 @@ export class CategoriesFormComponent implements OnInit {
         });
 
         timer(2000).toPromise().then(done => {
-          this.back;
+          this.location.back;
         });
       },
       (error) => {
