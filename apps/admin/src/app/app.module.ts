@@ -15,9 +15,12 @@ import { CategoriesListComponent } from './pages/categories/categories-list/cate
 import { CategoriesFormComponent } from './pages/categories/categories-form/categories-form.component';
 import { ProductListComponent } from './pages/products/product-list/product-list.component';
 import { ProductFormComponent } from './pages/products/product-form/product-form.component';
+import { UsersListComponent } from './pages/users/users-list/users-list.component';
+import { UsersFormComponent } from './pages/users/users-form/users-form.component';
 
 import { CategoriesService } from '@markgabiana/products';
 import { ProductsService } from '@markgabiana/products';
+import { UsersService } from '@markgabiana/users';
 
 import { CardModule } from 'primeng/card';
 import { ToolbarModule } from 'primeng/toolbar';
@@ -35,6 +38,8 @@ import {InputTextareaModule} from 'primeng/inputtextarea';
 import {DropdownModule} from 'primeng/dropdown';
 import {InputSwitchModule} from 'primeng/inputswitch';
 import {EditorModule} from 'primeng/editor';
+import { TagModule } from 'primeng/tag';
+import { InputMaskModule } from 'primeng/inputmask';
 
 const UX_MODULE = [
   CardModule,
@@ -51,6 +56,8 @@ const UX_MODULE = [
   DropdownModule,
   InputSwitchModule,
   EditorModule,
+  TagModule,
+  InputMaskModule,
 ];
 
 @NgModule({
@@ -64,6 +71,8 @@ const UX_MODULE = [
     CategoriesFormComponent,
     ProductListComponent,
     ProductFormComponent,
+    UsersListComponent,
+    UsersFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -79,6 +88,7 @@ const UX_MODULE = [
     MessageService,
     ConfirmationService,
     ProductsService,
+    UsersService,
   ],
   bootstrap: [AppComponent],
 })
