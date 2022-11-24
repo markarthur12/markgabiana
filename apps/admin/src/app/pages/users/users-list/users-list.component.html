@@ -1,8 +1,8 @@
 <p-toast></p-toast>
 <div class="admin-page">
   <p-card header="Users" subheader="List of all users">
-    <div class="p-grid">
-      <div class="p-col-12">
+    <div class="grid">
+      <div class="col-12">
         <p-toolbar>
           <div class="p-toolbar-group-left">
             <p-button
@@ -15,8 +15,8 @@
         </p-toolbar>
       </div>
     </div>
-    <div class="p-grid">
-      <div class="p-col-12">
+    <div class="grid">
+      <div class="col-12">
         <p-table [value]="users" styleClass="p-datatable-gridlines">
           <ng-template pTemplate="header">
             <tr>
@@ -45,7 +45,7 @@
                   [rounded]="true"
                 ></p-tag>
               </td>
-              <td>{{ user.country }}</td>
+              <td>{{ getCountryName(user.country) }}</td>
               <td>
                 <p-button
                   (click)="deleteUser(user.id)"

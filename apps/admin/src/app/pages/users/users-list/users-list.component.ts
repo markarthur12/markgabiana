@@ -6,26 +6,29 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 @Component({
   selector: 'markgabiana-users-list',
   templateUrl: './users-list.component.html',
-  styleUrls: ['./users-list.component.scss']
+  styleUrls: ['./users-list.component.scss'],
 })
 export class UsersListComponent implements OnInit {
   users: User[] = [];
+  countries = [];
 
   constructor(
     private usersService: UsersService,
     private messageService: MessageService,
     private confirmationService: ConfirmationService,
     private router: Router
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this._getUsers();
   }
 
   private _getUsers() {
-    this.usersService.getUsers().subscribe((users => {
+    this.usersService.getUsers().subscribe((users) => {
       this.users = users;
-    }));
+      
+      this
+    });
   }
 
   deleteUser(userId: string) {
@@ -40,18 +43,18 @@ export class UsersListComponent implements OnInit {
             this.messageService.add({
               severity: 'success',
               summary: 'Success',
-              detail: 'User is deleted!'
+              detail: 'User is deleted!',
             });
           },
           () => {
             this.messageService.add({
               severity: 'error',
               summary: 'Error',
-              detail: 'User is not deleted!'
+              detail: 'User is not deleted!',
             });
           }
         );
-      }
+      },
     });
   }
 
@@ -59,4 +62,7 @@ export class UsersListComponent implements OnInit {
     this.router.navigateByUrl(`users/new-form/${userid}`);
   }
 
+  getCountryName(countryKey: string) {
+    if (countryKey) return this.usersService.getCountry(countryKey);
+  }
 }
