@@ -22,7 +22,7 @@ import { OrdersDetailComponent } from './pages/orders/orders-detail/orders-detai
 
 import { CategoriesService } from '@markgabiana/products';
 import { ProductsService } from '@markgabiana/products';
-import { UsersService } from '@markgabiana/users';
+import { UsersModule, UsersService } from '@markgabiana/users';
 
 import { CardModule } from 'primeng/card';
 import { ToolbarModule } from 'primeng/toolbar';
@@ -62,6 +62,7 @@ const UX_MODULE = [
   TagModule,
   InputMaskModule,
   FieldsetModule,
+  UsersModule,
 ];
 
 @NgModule({
