@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -22,7 +22,7 @@ import { OrdersDetailComponent } from './pages/orders/orders-detail/orders-detai
 
 import { CategoriesService } from '@markgabiana/products';
 import { ProductsService } from '@markgabiana/products';
-import { UsersModule, UsersService } from '@markgabiana/users';
+import { JwtInterceptor, UsersModule, UsersService } from '@markgabiana/users';
 
 import { CardModule } from 'primeng/card';
 import { ToolbarModule } from 'primeng/toolbar';
@@ -96,6 +96,7 @@ const UX_MODULE = [
     ConfirmationService,
     ProductsService,
     UsersService,
+    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}
   ],
   bootstrap: [AppComponent],
 })
